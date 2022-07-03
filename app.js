@@ -145,6 +145,13 @@ app.get(`/filter/:mealId`,(req,res) => {
     res.send(result)
   })
 })
+app.get('/menu/:id',(req,res) => {
+  let id = Number(req.params.id)
+  db.collection('menu').find({restaurant_id:id}).toArray((err,result) => {
+    if(err) throw err;
+    res.send(result)
+  })
+})
 // app.post('/placeOrder',(req,res) => {
 //   console.log(req.body)
 //   db.collection('orders').insert(req.body,(err,result) => {
