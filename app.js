@@ -14,6 +14,7 @@ let mongoUrl=process.env.MongoLiveUrl;
 let mongo=require('mongodb');
 let bodyParser=require('body-parser');
 let cors = require('cors');
+const { query } = require('express');
 // mongoUrl="mongodb://localhost:27017";
 // mongoLiveUrl="mongodb+srv://admin:admin1234@cluster0.rursfne.mongodb.net/?retryWrites=true&w=majority"
 
@@ -48,6 +49,23 @@ app.get('/mealType',(req,res)=>{
 app.get('/orders',(req,res)=>{
 
   db.collection('orders').find().toArray((err,result)=>{
+     if(err) throw err;
+     res.send(result)
+   })
+ 
+ 
+ 
+ })
+ app.get('/details/:restId',(req,res)=>{
+  let restId=Number(req.params.restId)
+  query={}
+  if(restId)
+  {
+    query={restaurant_id:restId}
+  }
+
+
+  db.collection('restaurant').find(query).toArray((err,result)=>{
      if(err) throw err;
      res.send(result)
    })
