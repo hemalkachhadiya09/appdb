@@ -177,18 +177,18 @@ app.post('/placeOrder',(req,res) => {
     res.send(result)
   })
 })
-// app.post('/menuItem',(req,res)=>{
-//   if(Array.isArray(req.body))
-//   {
-//     db.collection('menu').find({menu_id:{$in:req.body}}).toArray((err,result)=>{
-//       if(err) throw err;
-//       res.send(result)
-//     })
-//   }
-//   else{
-//     res.send('Invalid Input')
-//   }
-// })
+app.post('/menuItem',(req,res)=>{
+  if(Array.isArray(req.body))
+  {
+    db.collection('menu').find({menu_id:{$in:req.body}}).toArray((err,result)=>{
+      if(err) throw err;
+      res.send(result)
+    })
+  }
+  else{
+    res.send('Invalid Input')
+  }
+})
 // app.put('/updateOrder/:id',(req,res) => {
 //   let oid = Number(req.params.id);
 //   db.collection('orders').updateOne(
