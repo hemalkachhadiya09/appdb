@@ -170,13 +170,13 @@ app.get('/menu/:id',(req,res) => {
     res.send(result)
   })
 })
-// app.post('/placeOrder',(req,res) => {
-//   console.log(req.body)
-//   db.collection('orders').insert(req.body,(err,result) => {
-//     if(err) throw err;
-//     res.send(result)
-//   })
-// })
+app.post('/placeOrder',(req,res) => {
+  console.log(req.body)
+  db.collection('order').insert(req.body,(err,result) => {
+    if(err) throw err;
+    res.send(result)
+  })
+})
 // app.post('/menuItem',(req,res)=>{
 //   if(Array.isArray(req.body))
 //   {
