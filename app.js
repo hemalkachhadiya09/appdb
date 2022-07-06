@@ -58,10 +58,10 @@ app.get('/orders',(req,res)=>{
  })
  app.get('/details/:restId',(req,res)=>{
   let restId=Number(req.params.restId)
-  query={}
+  let query={}
   if(restId)
   {
-    query={restaurant_id:restId}
+    query={'restaurant_id':restId}
   }
 
 
