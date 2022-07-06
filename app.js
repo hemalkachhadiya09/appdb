@@ -48,7 +48,7 @@ app.get('/mealType',(req,res)=>{
 })
 app.get('/orders',(req,res)=>{
 
-  db.collection('orders').find().toArray((err,result)=>{
+  db.collection('order').find().toArray((err,result)=>{
      if(err) throw err;
      res.send(result)
    })
